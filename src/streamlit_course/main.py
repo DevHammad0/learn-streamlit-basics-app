@@ -191,24 +191,23 @@ def layouts():
     # Create three columns
     col1, col2, col3 = st.columns(3)
     
-    with col1:
-        st.header("Column 1")
-        st.write("This is column 1")
-        
-    with col2:
-        st.header("Column 2")
-        st.write("This is column 2")
-        
-    with col3:
-        st.header("Column 3")
-        st.write("This is column 3")
+    col1.header("Column 1")
+    col1.write("This is column 1")
+
+    # Column 2
+    col2.header("Column 2")
+    col2.write("This is column 2")
+
+    # Column 3
+    col3.header("Column 3")
+    col3.write("This is column 3")
     
     
     st.write("---")
     # Example with expander
     st.markdown("### Using Expander:")
-    with st.expander("Click to expand"):
-        st.write("This content is hidden by default!")
+    exp = st.expander("Click to expand")
+    exp.write("This content is hidden by default!")
         
     st.write("---")
     st.subheader("Code Example:")
@@ -216,21 +215,20 @@ def layouts():
     # Create three columns
     col1, col2, col3 = st.columns(3)
     
-    with col1:
-        st.header("Column 1")
-        st.write("This is column 1")
-        
-    with col2:
-        st.header("Column 2")
-        st.write("This is column 2")
-        
-    with col3:
-        st.header("Column 3")
-        st.write("This is column 3")
+    col1.header("Column 1")
+    col1.write("This is column 1")
+
+    # Column 2
+    col2.header("Column 2")
+    col2.write("This is column 2")
+
+    # Column 3
+    col3.header("Column 3")
+    col3.write("This is column 3")
     
     # Example with expander
-    with st.expander("Click to expand"):
-        st.write("This content is hidden by default!")
+    exp = st.expander("Click to expand")
+    exp.write("This content is hidden by default!")
     ''')
 
 def simple_chatbot():
@@ -242,8 +240,9 @@ def simple_chatbot():
     
     # Display chat history
     for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        chat_mes =st.chat_message(message["role"])
+        chat_mes.markdown(message["content"])
+    
     
     # Chat input
     if prompt := st.chat_input("What would you like to know about Streamlit?"):
@@ -251,8 +250,8 @@ def simple_chatbot():
         st.session_state.messages.append({"role": "user", "content": prompt})
         
         # Display user message
-        with st.chat_message("user"):
-            st.markdown(prompt)
+        user = st.chat_message("user")
+        user.markdown(prompt)
         
         # Simple response logic
         response = "I'm a simple chatbot. I can help you learn about Streamlit! Try asking about basic commands or features."
@@ -261,8 +260,8 @@ def simple_chatbot():
         st.session_state.messages.append({"role": "assistant", "content": response})
         
         # Display assistant response
-        with st.chat_message("assistant"):
-            st.markdown(response)
+        assistant = st.chat_message("assistant")
+        assistant.markdown(response)
             
             
     st.write("---")
@@ -274,8 +273,8 @@ def simple_chatbot():
     
     # Display chat history
     for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+        chat_mes = st.chat_message(message["role"]):
+        chat_mes.markdown(message["content"])
     
     # Chat input
     if prompt := st.chat_input("What would you like to know about Streamlit?"):
@@ -283,8 +282,8 @@ def simple_chatbot():
         st.session_state.messages.append({"role": "user", "content": prompt})
         
         # Display user message
-        with st.chat_message("user"):
-            st.markdown(prompt)
+        user = st.chat_message("user")
+        user.markdown(prompt)
         
         # Simple response logic
         response = "I'm a simple chatbot. I can help you learn about Streamlit!"
@@ -293,8 +292,8 @@ def simple_chatbot():
         st.session_state.messages.append({"role": "assistant", "content": response})
         
         # Display assistant response
-        with st.chat_message("assistant"):
-            st.markdown(response)
+        assistant = st.chat_message("assistant")
+        assistant.markdown(response)
     ''')
     
     

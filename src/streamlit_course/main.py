@@ -98,28 +98,28 @@ def data_display():
     st.header("3. Data Display")
     
     # Create sample data
-    df = pd.DataFrame({
-        'Name': ['John', 'Anna', 'Peter'],
-        'Age': [25, 30, 35],
-        'City': ['New York', 'Paris', 'London']
-    })
+    data = {
+        "Name": ["Alice", "Bob", "Charlie"],
+        "Age": [25, 30, 35],
+        "City": ["New York", "Paris", "Berlin"]
+    }
     
     st.markdown("### Displaying Data:")
     
     # Display dataframe
     st.subheader("DataFrame Display")
-    st.dataframe(df)
+    st.table(data)
     
     st.write("---")
     # Show code example for DataFrame
     st.code('''
     # Create and display a DataFrame
-    df = pd.DataFrame({
-        'Name': ['John', 'Anna', 'Peter'],
-        'Age': [25, 30, 35],
-        'City': ['New York', 'Paris', 'London']
-    })
-    st.dataframe(df)
+    data = {
+    "Name": ["Alice", "Bob", "Charlie"],
+    "Age": [25, 30, 35],
+    "City": ["New York", "Paris", "Berlin"]
+}
+    st.table(data)
     ''')
     
     # Display chart
